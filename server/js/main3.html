@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Face Detection Algorithm Video</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="background-gif"></div>
+  <div id="navigation">
+    <a class="hover-animation" href="index.html">Home</a>
+    <a class="hover-animation" href="main.html">IoT relation</a>
+    <a class="hover-animation" href="main2.html">Structure</a>
+    <a class="hover-animation" href="main3.html">Data sender</a>
+  </div>
+
+  <div id="content"> 
+    <label class="switch">
+      <input type="checkbox" id="switchtoggle" />
+      <span class="slider">
+        <span class="label fb">FB</span>
+        <span class="label local">Local</span>
+      </span>
+    </label>
+
+    <h1>ESP32 Firebase Latency Test</h1> 
+
+    <!-- קבוצת קלט להזנת ערך -->
+    <div class="input-group">
+      <label for="numberInput">Value:</label>
+      <input type="number" id="numberInput" placeholder="Enter your value" />
+      <button id="sendButton">Send Value</button>
+    </div>
+
+    <!-- קבוצת קלט להזנת מספר המחזורים -->
+    <div class="input-group">
+      <label for="cyclesInput">Cycles:</label>
+      <input type="number" id="cyclesInput" placeholder="Enter cycles" />
+      <button id="sendCyclesButton">Send Cycles</button>
+    </div>
+
+    <!-- כפתור לאיפוס הלוג -->
+    <button id="clear">Clear Log</button>
+    <!-- תיבה להצגת עדכונים -->
+    <div id="output"></div>
+
+    <!-- הכללת ספריות הפיירבייס -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <!-- הכללת הסקריפט הראשי שלנו -->
+
+    <div class="selector">
+      <label for="data-options">Select an option:</label>
+      <select id="data-options">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+      </select>
+    </div>
+  </div>
+  <div class="push"></div> <!-- Create space for the footer -->
+  <div class="footer-container">
+    <div class="page-container">
+      <footer class="footer left">&copy; מצלמת מעקב נדדית בשימוש IOT</footer>
+      <footer class="footer right">&copy; contact us: tmeerka10@gmail.com , 0548006537</footer>
+    </div>
+  <script src="/java/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,381 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  height: 100%;
+}
+
+.background-gif {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: url('/img/Facial-Recognition-Indian-Government.gif') center center fixed;
+  background-size: cover;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+#navigation {
+  background-color: #0b0000;
+  padding: 10px;
+  text-align: center;
+}
+
+
+
+table {
+  border-collapse: collapse;
+  margin-top: 70px;
+}
+
+th, td {
+  border: 1px solid #0d0c0c;
+  padding: 8px;
+}
+
+input[type="text"] {
+  padding: 6px;
+  width: 200px;
+}
+
+.form-box {
+  border: 1px solid #0f0e0e;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+#navigation a {
+  display: inline-block;
+  margin: 5px;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  background-color: #555;
+  border-radius: 5px;
+}
+
+#navigation a:hover {
+  background-color: #090707;
+}
+
+
+.main-content {
+  padding: 20px;
+  margin: 20px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+/* Define the footer container */
+.footer-container {
+  background-color: #2e3550;
+  padding: 10px;
+  color: white;
+  position: relative;
+  /* Remove "position: absolute; bottom: 0;" */
+  width: 100%;
+}
+
+.push {
+  height: 100px; /* Adjust this height as needed to create space for the footer */
+}
+
+/* Style for individual footer elements */
+.footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+}
+
+.hover-animation {
+  display: inline-block;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.hover-animation::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: red;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.hover-animation:hover::after {
+  transform: scaleX(1);
+}
+
+
+p {
+  margin-top: 30px;
+}
+
+h1 {
+  color: #cb4f07;
+}
+
+video {
+  margin-top: 20px;
+}
+
+.right-image4 {
+  top: 60%;
+  right: 0;
+  transform: translateY(-50%);
+  width: 500px;
+  height: auto;
+}
+
+.left-image{
+  top: 60%; 
+  right: 0px;
+  height: auto;
+  
+}
+
+.gallery-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.gallery-item {
+  width: 200px;
+  margin: 10px;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+}
+h1 {
+  color: #333;
+  text-align: center;
+}
+
+h2 {
+  color: #666;
+  font-size: 24px;
+}
+
+p {
+  color: #333;
+  line-height: 1.5;
+  margin: 10px 0;
+}
+
+ol {
+  color: #444;
+  margin-left: 20px;
+}
+
+li {
+  margin: 5px 0;
+}
+/* Add this CSS to style the right section */
+.right-section {
+  float: right;
+  width: 30%; /* Adjust the width as needed */
+  margin: 20px;
+}
+
+.boxes {
+  margin-bottom: 20px;
+}
+
+.boxes .box {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.selector {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+/* Clear the float to prevent layout issues */
+.clear {
+  clear: both;
+}
+
+.gallery {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.image-box {
+  width: 200px;
+  height: 200px;
+  border: 1px solid #ccc;
+  overflow: hidden;
+  margin: 10px;
+}
+
+.image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+#content {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+#output {
+  margin-top: 20px;
+  border-top: 1px solid #ccc;
+  padding-top: 10px;
+  text-align: left;
+}
+
+input[type="text"], input[type="number"] {
+  width: 70%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  outline: none;
+  size: "5";
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+label {
+  font-size: 22px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Toggle Switch Styles */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 120px;
+  height: 34px;
+  background-color: #fff;
+  border-radius: 34px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 58px;
+  left: 4px;
+  bottom: 4px;
+  background-color: #007bff;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #007bff;
+}
+
+input:checked + .slider:before {
+  transform: translateX(58px);
+  background-color: #ccc;
+}
+
+.label {
+  position: absolute;
+  color: white;
+  width: 50%;
+  text-align: center;
+  line-height: 34px;
+  font-size: 14px;
+}
+
+.label.local {
+  right: 5%;
+}
+
+.label.fb {
+  left: 5%;
+}
+
+input:checked + .slider .local {
+  color: black;
+}
+
+input:checked + .slider .fb {
+  color: white;
+}
+.input-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px; 
+}
+
+.input-group label {
+  flex-shrink: 0;
+}
+
+.input-group input[type="number"] {
+  margin-right: 10px;
+}
