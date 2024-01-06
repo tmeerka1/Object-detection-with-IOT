@@ -1,0 +1,59 @@
+<div>Teachable Machine Image Model</div>
+<button type="button" onclick="init()">Start</button>
+<div id="webcam-container"></div>
+<div id="label-container"></div>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+<script type="text/javascript">
+    // Replace with the IP address or hostname of your ESP32-CAM
+    const ESP32_CAM_IP = "http://172.20.10.2";
+    // Replace with the link to your model provided by Teachable Machine export panel
+    const URL = "https://teachablemachine.withgoogle.com/models/hHP5FtU8P/";
+
+    let model, labelContainer, maxPredictions;
+
+    async function init() {
+        const modelURL = URL + "model.json";
+        const metadataURL = URL + "metadata.json";
+
+        // load the model and metadata
+        model = await tmImage.load(modelURL, metadataURL);
+        maxPredictions = model.getTotalClasses();
+
+        // append elements to the DOM
+        labelContainer = document.getElementById("label-container");
+        for (let i = 0; i < maxPredictions; i++) {
+            labelContainer.appendChild(document.createElement("div"));
+        }
+
+        window.requestAnimationFrame(loop);
+    }
+
+    async function loop() {
+        await predict();
+        window.requestAnimationFrame(loop);
+    }
+
+    // run the ESP32-CAM image through the image model
+    async function predict() {
+        // Use crossorigin.me as a proxy to handle CORS
+        const proxyURL = "https://cors-anywhere.herokuapp.com/";
+        const imageDataURL = proxyURL + ESP32_CAM_IP + ":81/stream";
+
+        const img = new Image();
+        img.crossOrigin = "Anonymous";
+        img.src = imageDataURL;
+
+        img.onload = async () => {
+            const prediction = await model.predict(img);
+
+            // Display predictions
+            labelContainer.innerHTML = ""; // Clear previous predictions
+            for (let i = 0; i < maxPredictions; i++) {
+                const classPrediction =
+                    prediction[i].className + ": " + prediction[i].probability.toFixed(2);
+                labelContainer.innerHTML += "<div>" + classPrediction + "</div>";
+            }
+        };
+    }
+</script>

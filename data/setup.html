@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ESP32 WiFi Setup</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      input[type="text"],
+      input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
+
+      input[type="submit"] {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #0056b3;
+      }
+
+      button {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        margin-top: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-align: center;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>ESP32 WiFi Setup</h1>
+      <label for="ssid">SSID:</label>
+      <input type="text" id="ssid" name="ssid" required />
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" />
+
+      <button id="connectButton">Connect</button>
+      <div id="saved-networks">
+        <!-- Saved networks will be populated here by the JS -->
+      </div>
+    </div>
+    <script>
+      const connectButton = document.getElementById("connectButton");
+      const ssidText = document.getElementById("ssid");
+      const passwordText = document.getElementById("password");
+
+      document.addEventListener("DOMContentLoaded", function () {
+        // Fetch saved networks and populate them
+        fetchSavedNetworks();
+
+        // Event listener for saved network buttons
+        document
+          .getElementById("saved-networks")
+          .addEventListener("click", function (e) {
+            if (e.target && e.target.nodeName === "BUTTON") {
+              const ssid = e.target.getAttribute("data-ssid");
+              const password = e.target.getAttribute("data-password");
+              ssidText.value = ssid;
+              passwordText.value = password;
+            }
+          });
+      });
+
+      function fetchSavedNetworks() {
+        fetch("networks.json")
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Network response was not ok");
+            }
+            return response.json();
+          })
+          .then((data) => {
+            const savedNetworksDiv = document.getElementById("saved-networks");
+            data.networks.forEach((network) => {
+              const btn = document.createElement("button");
+              btn.textContent = network.ssid;
+              btn.setAttribute("data-ssid", network.ssid);
+              btn.setAttribute("data-password", network.password);
+              btn.style.backgroundColor = "#89e173"; //set the network buttons to a different color
+              savedNetworksDiv.appendChild(btn);
+            });
+          })
+          .catch((error) => {
+            console.log(
+              "There was a problem with the fetch operation:",
+              error.message
+            );
+          });
+      }
+
+      connectButton.addEventListener("click", () => {
+        fetch("/credentials", {
+          method: "POST", // שיטת הבקשה
+          body: new URLSearchParams({
+            SSID: ssidText.value,
+            PWD: passwordText.value,
+          }), // הגוף של הבקשה
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded", // סוג התוכן של הבקשה
+          },
+        })
+          .then((response) => response.text())
+          .then(() => {});
+      });
+    </script>
+  </body>
+</html>

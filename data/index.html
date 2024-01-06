@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <!-- הגדרת התצוגה להתאמה אוטומטית לרוחב המסך ובגודל התצוגה הרגיל -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Robot Control</title> <!-- הכותרת  הדף -->
+  <link rel="stylesheet" href="styles.css" /> <!-- קובץ העיצוב שלנו-->
+  <link rel="icon" href="/test/img/AvaterFromW3Schools.jpg" type="image/png">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.min.js"></script>
+  <script src="https://unpkg.com/ml5@latest/dist/ml5.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ml5/0.5.1/ml5.min.js"></script>
+</head>
+
+<body>
+
+  <div id="content">
+
+    <!------MAKE SURE TO COPY THIS SWITCH TO RETAIN REFERENCE TO FB AND LOCAL MODES------>
+    <!------------------------------------------------------------------------------------>
+    <label class="switch">
+      <input type="checkbox" id="switchtoggle" />
+      <span class="slider">
+        <span class="label fb">FB</span>
+        <span class="label local">Esp</span>
+      </span>
+    </label>
+    <!------------------------------------------------------------------------------------>
+
+    <h1>ShadowTracker Control</h1>
+
+    <!-- קבוצת קלט להזנת ערך -->
+    <div class="input-group">
+      <label for="numberInput">RX bit control:</label>
+      <input type="number" id="numberInput" placeholder="Enter your value" />
+      <button id="sendButton">Send</button>
+    </div>
+
+    <!-- כפתור לאיפוס הלוג -->
+    <button id="clear">Clear Log</button>
+
+    <img src=""  id="espVideo" alt="" crossorigin="anonymous">
+
+    <select id="targetObject">     <!-- only can be manually changed -->
+      <option value="Class 1">detect : tmeer</option>
+      <option value="Class 2">detect : sket</option>
+
+    </select>
+
+    <button id="startDetection">Start Detection</button>
+    <br>
+
+    <div class="directional-pad">
+      <button id="send5Button">
+        <img src="/test/img/Forwards.jpg" alt="Forward" width="50" height="50">
+      </button>
+
+
+      <button id="send1Button">
+        <img src="/test/img/Right.jpg" alt="Right" width="50" height="50">
+      </button>
+
+      <button id="send3button">
+        <img src="/test/img/Backwards.jpg" alt="Backward" width="50" height="50">
+      </button>
+
+      <button id="send4button">
+        <img src="/test/img/Left.jpg" alt="Left" width="50" height="50">
+      </button>
+
+      <button id="send0button">
+        <img src="/test/img/Center.jpg" alt="Stop" width="50" height="50">
+      </button>
+
+      <button id="piazo">
+        piazo
+      </button>
+    </div>
+
+    <!-- תיבה להצגת עדכונים -->
+    <div id="output"></div>
+    <!--דוגמא לפרוייקט -->
+    <div id="projectExmaple">
+      <div class="runtime-container">
+        <label for="textOutput">Runtime of server: </label>
+        <span id="textOutput"></span>
+        <label for="textOutput1">Distance: </label>
+        <span id="textOutput1"></span>
+      </div>
+
+      <video autoplay muted loop id="video-background">
+        <source src="/test/img/SimilarIdea.mp4" type="video/mp4">
+      </video>
+
+      <div class="footer-container">
+        <footer class="footer left">&copy; IOT מצלמת מעקב ניידת בשימוש</footer>
+      </div>
+
+    </div>
+    <!-- הכללת ספריות הפיירבייס -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <!-- הכללת הסקריפט הראשי שלנו -->
+    <script src="script.js"></script>
+
+  </div>
+  
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.min.js"></script>
+   <script src="https://unpkg.com/ml5@latest/dist/ml5.min.js"></script>
+</body>
+
+</html>

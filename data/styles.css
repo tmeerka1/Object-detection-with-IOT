@@ -1,0 +1,292 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+#content {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+    box-sizing: border-box;
+}
+#textOutput {
+    border: 1px solid #ddd;
+    padding: 10px;
+    background-color: #f9f9f9;
+    max-width: 300px;
+    margin: 10px 0;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+}
+#output {
+    margin-top: 20px;
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+    text-align: left;
+}
+#projectExmaple {
+    margin-top: 20px;
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+    text-align: center;
+}
+
+
+input[type="text"], input[type="number"] {
+    width: 70%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    outline: none;
+    size: "5";
+}
+
+
+button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+label {
+    font-size: 22px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Toggle Switch Styles */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 120px;
+    height: 34px;
+    background-color: #fff;
+    border-radius: 34px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 58px;
+    left: 4px;
+    bottom: 4px;
+    background-color: #007bff;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #007bff;
+}
+
+input:checked + .slider:before {
+    transform: translateX(58px);
+    background-color: #ccc;
+}
+
+.label {
+    position: absolute;
+    color: white;
+    width: 50%;
+    text-align: center;
+    line-height: 34px;
+    font-size: 14px;
+}
+
+.label.local {
+    right: 5%;
+}
+
+.label.fb {
+    left: 5%;
+}
+
+input:checked + .slider .local {
+    color: black;
+}
+
+input:checked + .slider .fb {
+    color: white;
+}
+.input-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; 
+}
+
+.input-group label {
+    flex-shrink: 0;
+}
+
+.input-group input[type="number"] {
+    margin-right: 10px;
+}
+
+
+#video-background {
+    position: fixed; /* The video will be fixed in the viewport, not affected by scrolling */
+    right: 0; /* Positioned to the right edge of the viewport */
+    bottom: 0; /* Positioned to the bottom edge of the viewport */
+    min-width: 100%; /* Ensure a minimum width of 100% */
+    min-height: 100%; /* Ensure a minimum height of 100% */
+    width: auto; /* Allow the width to adjust automatically based on the aspect ratio */
+    height: auto; /* Allow the height to adjust automatically based on the aspect ratio */
+    z-index: -1; /* Set a negative z-index to place it behind other elements, like the container */
+  }
+  
+   /* Add the following styles to center the video */
+   #video-example {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Set height to 100% of viewport height */
+  }
+  
+  #video-example {
+    max-width: 100%; /* Ensure the video doesn't exceed the container's width */
+  }
+
+
+  
+/* Footer styles */
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    position: fixed; /* Stick the footer to the bottom */
+    bottom: 0; /* Place it at the bottom of the viewport */
+    left: 0;
+    right: 0;
+    color: white;
+    z-index: 2; /* Ensure it's above other content */
+  }
+  
+  .button-container {
+    display: flex;
+  }
+
+/* Add the following styles to control-container */
+.control-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .lr-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  
+  /* Add the following styles to switch-title-container */
+  .switch-title-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  /* Adjust the margin for the title */
+  h1 {
+    margin: 0;
+  }
+  
+  /* Adjustments for input-group and clear button */
+  .input-group {
+    margin-top: 10px;
+  }
+  
+  button#clear {
+    margin-top: 10px;
+  }
+  #clear {
+    margin-bottom: 20px; /* Add margin to separate from the directional pad */
+  }
+  
+  #content {
+    /* Your existing styles for #content */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  #clear {
+    /* Your existing styles for #clear */
+    margin-bottom: 10px; /* Add margin to separate from the directional pad */
+  }
+  
+  .directional-pad {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  
+  #send0button {
+    grid-column: 2; /* Center the "Stop" button */
+  }
+  
+  /* Additional styling for directional pad buttons */
+  #send1Button, #send3button, #send4button, #send5Button {
+    width: 100px; /* Adjust the width as needed */
+    height: 100px; /* Adjust the height as needed */
+  }
+
+  .piazoo:hover {
+    background-color: #45a049; /* Darker green color on hover */
+  }
+
+  .piazoo {
+    text-align: center;
+    padding: 20px;
+    border: 2px solid #333;
+    background-color: #241e35;
+    margin: auto; /* Center horizontally */
+    margin-top: 17%; /* Adjust top margin for vertical centering */
+    border-radius: 10px;
+    max-width: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center vertically and horizontally */
+  }
+  
+  

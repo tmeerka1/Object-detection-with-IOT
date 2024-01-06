@@ -1,0 +1,436 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+#navigation {
+  background-color: #000000; /* Set background color to black */
+  padding: 10px; /* Add padding inside the container */
+  text-align: center; /* Align text to the center */
+  position: fixed; /* Fix the navigation to the top of the viewport */
+  top: 0; /* Place it at the top of the viewport */
+  left: 0; /* Align the left edge of the container to the left of its containing element (viewport) */
+  right: 0; /* Align the right edge of the container to the right of its containing element (viewport) */
+  z-index: 2; /* Ensure it's above other content */
+} 
+.title {
+  border-bottom: 2px solid #f8f3f3; /* Adds a 2px solid black line below the title */
+  padding-bottom: 50px; /* Adjust the space between the title and the line as needed */
+}
+.container {
+  position: relative; /* Establish relative positioning for child elements */
+  z-index: 1; /* Set the stacking order of the container; higher values appear above lower ones */
+  padding: 20px; /* Add internal padding to the container */
+  margin: 20px; /* Add external margin around the container */
+  border-radius: 10px; /* Apply rounded corners to the container */
+  background-color: rgba(255, 255, 255, 0.9); /* Set the background color with some opacity */
+  margin-top: 50px; /* Add space between the container and the element above (50px from the top) */
+  margin-bottom: 200px; /* Add space between the container and the element below (200px from the bottom) */
+}
+
+#video-background {
+  position: fixed; /* The video will be fixed in the viewport, not affected by scrolling */
+  right: 0; /* Positioned to the right edge of the viewport */
+  bottom: 0; /* Positioned to the bottom edge of the viewport */
+  min-width: 100%; /* Ensure a minimum width of 100% */
+  min-height: 100%; /* Ensure a minimum height of 100% */
+  width: auto; /* Allow the width to adjust automatically based on the aspect ratio */
+  height: auto; /* Allow the height to adjust automatically based on the aspect ratio */
+  z-index: -1; /* Set a negative z-index to place it behind other elements, like the container */
+}
+
+
+/* Footer styles */
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  position: fixed; /* Stick the footer to the bottom */
+  bottom: 0; /* Place it at the bottom of the viewport */
+  left: 0;
+  right: 0;
+  color: white;
+  z-index: 2; /* Ensure it's above other content */
+}
+
+#distance-container {
+  /* Center the text content inside the container */
+  text-align: center;
+
+  /* Add padding inside the container */
+  padding: 20px;
+
+  /* Create a solid border around the container with a dark gray color */
+  border: 2px solid #333;
+
+  /* Set the background color of the container to a light gray */
+  background-color: #f0f0f0;
+
+  /* Center the container horizontally by setting a margin of 10 pixels */
+  margin: 10px;
+
+  /* Adjust the top margin for vertical centering (1% of viewport height) */
+  margin-top: 1%;
+
+  /* Apply a border-radius of 10 pixels, creating rounded corners */
+  border-radius: 10px;
+
+  /* Set the maximum width of the container to 400 pixels */
+  max-width: 400px;
+
+  /* Position the container absolutely within its containing element */
+  position: absolute;
+
+  /* Position the top-left corner of the container at the center of its containing element */
+  top: 50%;
+  left: 50%;
+
+  /* Further adjust the positioning, translating the container up and to the left by 50% of its own width and height */
+  transform: translate(-50%, -50%);
+}
+
+
+
+
+/* Style for individual footer elements */
+.footer {
+  text-align: center;
+  padding: 10px;
+  color: #fff;
+}
+
+/*padding affects the space inside an element, and margin affects the space outside an element.*/
+
+
+#navigation a {
+  display: inline-block; /* Displays the links as inline-block elements, allowing them to be styled like blocks with inline properties */
+  margin: 5px; /* Adds a margin around each link */
+  padding: 10px 15px; /* Adds padding inside each link, with 10px on top and bottom, and 15px on the left and right */
+  text-decoration: none; /* Removes the default underline decoration for links */
+  color: #fff; /* Sets the text color to white */
+  font-weight: bold; /* Sets the font weight to bold for a bold text appearance */
+  background-color: #030303; /* Sets the background color of the links */
+  border-radius: 5px; /* Adds rounded corners to the links */
+}
+
+#navigation a:hover {
+  background-color: #090707; /* Changes the background color when the mouse hovers over the links */
+}
+
+.hover-animation {
+  /* Make the element an inline-block, allowing it to sit inline with text and other elements */
+  display: inline-block;
+
+  /* Establish a positioning context for the pseudo-element */
+  position: relative;
+
+  /* Apply a smooth transition effect to the transform property over 0.3 seconds with an ease timing function */
+  transition: transform 0.3s ease;
+}
+
+.hover-animation::after {
+  /* Generate an empty content box for the pseudo-element */
+  content: "";
+
+  /* Set the positioning to absolute, positioning the pseudo-element relative to its nearest positioned ancestor (in this case, the element with .hover-animation) */
+  position: absolute;
+
+  /* Move the pseudo-element to the bottom of the parent element (2 pixels below) */
+  bottom: -2px;
+
+  /* Align the pseudo-element to the left edge of the parent element */
+  left: 0;
+
+  /* Set the width of the pseudo-element to 100% of the parent element's width */
+  width: 100%;
+
+  /* Set the height of the pseudo-element to 2 pixels */
+  height: 2px;
+
+  /* Set the background color of the pseudo-element to red */
+  background-color: red;
+
+  /* Initially, scale the pseudo-element horizontally to 0 (not visible) */
+  transform: scaleX(0);
+
+  /* Apply a smooth transition effect to the transform property over 0.3 seconds with an ease timing function */
+  transition: transform 0.3s ease;
+}
+
+
+/* Hover animation for elements with the 'hover-animation' class */
+.hover-animation:hover::after {
+  transform: scaleX(1); /* Scales the pseudo-element horizontally to 1 (visible) on hover */
+}
+
+/* Gallery container styling */
+.gallery-container {
+  display: flex; /* Displays the gallery container as a flex container */
+  justify-content: center; /* Centers the content horizontally within the gallery container */
+  align-items: center; /* Centers the content vertically within the gallery container */
+  height: 100vh; /* Sets the height of the gallery container to 100% of the viewport height */
+}
+
+/* Styling for the gallery */
+.gallery {
+  display: flex; /* Displays the gallery items as flex items */
+  flex-wrap: wrap; /* Allows gallery items to wrap to the next line when there's not enough space */
+}
+
+/* Styling for individual gallery items */
+.gallery-item {
+  width: 200px; /* Sets the width of each gallery item to 200 pixels */
+  margin: 10px; /* Adds margin around each gallery item for spacing */
+}
+
+/* Styling for images inside gallery items */
+.gallery-item img {
+  width: 100%; /* Makes the image inside each gallery item take up 100% of the container width */
+  height: auto; /* Automatically adjusts the height while maintaining the aspect ratio */
+}
+
+
+h1 {
+  color: #9e9e9e;
+  text-align: center;
+}
+
+h2 {
+  color: #969696;
+  font-size: 24px;
+}
+
+
+ul {
+  color: #969696;
+  font-size: 24px;
+}
+
+p {
+  color: #a09f9f;
+  line-height: 1.5;
+  margin: 10px 0;
+}
+
+
+/* Add this CSS to style the right section */
+.right-section {
+  float: right;
+  width: 30%; /* Adjust the width as needed */
+  margin: 20px;
+}
+
+/* Styling for selector */
+.selector {
+  background-color: #f0f0f0; /* Sets the background color of the selector to a light gray */
+  border: 1px solid #ccc; /* Adds a 1-pixel solid border with a light gray color to the selector */
+  padding: 10px; /* Adds 10 pixels of padding inside the selector */
+}
+
+/* Clear the float to prevent layout issues */
+.clear {
+  clear: both; /* Clears both left and right floats, preventing layout issues */
+}
+
+/* Styling for gallery */
+.gallery {
+  display: flex; /* Displays the gallery items in a flex container */
+  justify-content: space-around; /* Distributes space around gallery items, creating a spaced layout */
+  flex-wrap: wrap; /* Allows gallery items to wrap to the next line when there's not enough space */
+  max-width: 800px; /* Sets the maximum width of the gallery container to 800 pixels */
+  margin: 0 auto; /* Centers the gallery container by setting left and right margins to 'auto' */
+}
+
+/* Styling for image boxes inside the gallery */
+.image-box {
+  width: 200px; /* Sets the width of each image box to 200 pixels */
+  height: 200px; /* Sets the height of each image box to 200 pixels */
+  border: 1px solid #ccc; /* Adds a 1-pixel solid border with a light gray color to each image box */
+  overflow: hidden; /* Hides any content that overflows the image box */
+  margin: 10px; /* Adds a margin of 10 pixels around each image box */
+}
+
+.image-box img {
+  width: 100%; /* Makes the image inside each image box take up 100% of the container width */
+  height: 100%; /* Makes the image inside each image box take up 100% of the container height */
+  object-fit: cover; /* Scales the image while maintaining its aspect ratio and covering the entire box */
+}
+
+/* Styling for content */
+#content {
+  background-color: #fff; /* Sets the background color of the content to white */
+  border-radius: 8px; /* Adds an 8-pixel border-radius, creating rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adds a subtle box shadow for depth */
+  padding: 20px; /* Adds 20 pixels of padding inside the content box */
+  width: 100%; /* Sets the width of the content box to 100% */
+  max-width: 600px; /* Sets the maximum width of the content box to 600 pixels */
+  text-align: center; /* Aligns the text inside the content box to the center */
+  box-sizing: border-box; /* Includes padding and border in the element's total width and height */
+}
+
+/* Styling for output */
+#output {
+  margin-top: 20px; /* Adds a top margin of 20 pixels to create space between content and output */
+  border-top: 1px solid #ccc; /* Adds a 1-pixel solid border with a light gray color above the output */
+  padding-top: 10px; /* Adds 10 pixels of padding above the output */
+  text-align: left; /* Aligns the text inside the output to the left */
+}
+
+/* Styling for input fields and buttons */
+input[type="text"],
+input[type="number"] {
+  width: 70%; /* Sets the width of text and number input fields to 70% */
+  padding: 10px; /* Adds 10 pixels of padding inside input fields */
+  border: 1px solid #ccc; /* Adds a 1-pixel solid border with a light gray color to input fields */
+  border-radius: 4px; /* Adds a 4-pixel border-radius, creating slightly rounded corners */
+  font-size: 14px; /* Sets the font size of input fields to 14 pixels */
+  outline: none; /* Removes the default focus outline */
+  size: "5"; /* Note: 'size' attribute is not valid for input fields; you might want to remove it */
+}
+
+button {
+  padding: 10px 20px; /* Adds padding to the button */
+  border: none; /* Removes the default button border */
+  background-color: #007bff; /* Sets the background color of the button to a blue color */
+  color: white; /* Sets the text color of the button to white */
+  border-radius: 4px; /* Adds a 4-pixel border-radius, creating slightly rounded corners */
+  font-size: 14px; /* Sets the font size of the button to 14 pixels */
+  cursor: pointer; /* Changes the cursor to a pointer on hover, indicating interactivity */
+  transition: background-color 0.3s; /* Adds a smooth transition effect to the background color */
+}
+
+button:hover {
+  background-color: #0056b3; /* Changes the background color of the button on hover */
+}
+
+
+.centered-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh; /* Adjust the height to center vertically on the page */
+}
+
+.flip-card {
+  width: 300px;
+  height: 300px;
+  margin: 30px; /* Add margin to separate the cards */
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;/*how much time it takes for it to rotate*/
+  transform-style: preserve-3d;/*This property is used in a 3D rendering context*/
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute; /*puts it exactly where u want*/
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /*  whether or not the back face of an element is visible when the element is rotated in 3D space. */
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  color: black;
+}
+
+.flip-card-back {
+  background-color: dodgerblue;
+  color: white;
+  transform: rotateY(180deg);
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 20%; /* Set a fixed width for both input fields */
+}
+
+/* Table styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: rgba(255, 255, 255, 0.9); /* Match the background color of your container */
+  border-radius: 10px;
+}
+
+/* Table styles */
+
+/* Set the font size and margin for the caption */
+caption {
+  font-size: 1.5em; /* 1.5 times the default font size */
+  margin-bottom: 10px; /* Add margin below the caption */
+}
+
+/* Apply styles to both table header (th) and table data (td) cells */
+th, td {
+  padding: 15px; /* Add padding inside each cell */
+  text-align: left; /* Align text to the left within cells */
+  border-bottom: 1px solid #ddd; /* Add a bottom border to separate rows */
+}
+
+/* Style specifically for table header cells */
+th {
+  background-color: #f8f8f8; /* Set a background color for the header */
+}
+
+/* Hover effect on rows when the mouse is over them */
+tr:hover {
+  background-color: #f5f5f5; /* Change the background color on hover for better user experience */
+}
+
+/* Styles for the control buttons container */
+#control-buttons {
+  display: flex; /* Use flex layout for the container */
+  justify-content: center; /* Center items horizontally */
+  align-items: center; /* Center items vertically */
+  margin-top: 20px; /* Add margin on top for spacing */
+}
+
+/* Styles for the controller wrapper */
+.controller {
+  background-color: #333; /* Set background color for the controller wrapper */
+  padding: 20px; /* Adjust padding inside the controller wrapper */
+  border-radius: 10px; /* Apply a border radius for rounded corners */
+  display: flex; /* Use flex layout for the container */
+  justify-content: space-between; /* Space between the items horizontally */
+  align-items: center; /* Center items vertically */
+  width: 160px; /* Set a fixed width for the controller */
+}
+
+/* Styles for individual control buttons */
+.control-button {
+  background-color: #3d4145; /* Set background color to a shade of blue */
+  color: white; /* Set text color to white */
+  padding: 10px 20px; /* Add padding inside the button (10px top/bottom, 20px left/right) */
+  border: none; /* Remove button border */
+  border-radius: 50%; /* Apply a border radius for rounded corners */
+  font-size: 16px; /* Set the font size of the text */
+  cursor: pointer; /* Set the cursor to a pointer to indicate interactivity */
+}
+
+/* Hover effect for control buttons */
+.control-button:hover {
+  background-color: #8fb300; /* Change background color on hover for visual feedback */
+}
+
